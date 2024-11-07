@@ -1,5 +1,5 @@
 import js from '@eslint/js'
-import pluginVue from 'eslint-plugin-vue'
+import pluginVue, { rules } from 'eslint-plugin-vue'
 import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
 
 export default [
@@ -16,4 +16,11 @@ export default [
   js.configs.recommended,
   ...pluginVue.configs['flat/essential'],
   skipFormatting,
+
+  {
+    rules: {
+      //不再限制组件名
+      'vue/multi-word-component-name': 0,
+    },
+  },
 ]
