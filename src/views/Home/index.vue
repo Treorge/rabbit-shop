@@ -1,9 +1,9 @@
 <script setup>
-import HomeCategory from './HomeCategory.vue'
-import HomeBanner from './HomeBanner.vue'
-import HomeNew from './HomeNew.vue'
-import HomeHot from './HomeHot.vue'
-import HomeProduct from './HomeProduct.vue'
+import HomeCategory from './component/HomeCategory.vue'
+import HomeBanner from './component/HomeBanner.vue'
+import HomeNew from './component/HomeNew.vue'
+import HomeHot from './component/HomeHot.vue'
+import HomeProduct from './component/HomeProduct.vue'
 </script>
 
 <template>
