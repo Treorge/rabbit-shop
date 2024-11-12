@@ -1,10 +1,9 @@
 <script setup>
 import { getCategoryAPI } from '@/api/layout'
-import { useCategoryStore } from '@/stores/category';
+import { useCategoryStore } from '@/stores/category'
 import { onMounted, ref } from 'vue'
 
 const categoryStore = useCategoryStore()
-
 </script>
 
 <template>
@@ -15,7 +14,7 @@ const categoryStore = useCategoryStore()
       </h1>
       <ul class="app-header-nav">
         <li class="home" v-for="item in categoryStore.categoryList" :key="item.id">
-          <RouterLink to="/">{{ item.name }}</RouterLink>
+          <RouterLink :to="`/category/${item.id}`">{{ item.name }}</RouterLink>
         </li>
       </ul>
       <div class="search">
