@@ -3,7 +3,6 @@
 <template>
   <div>
     <router-view></router-view>
-    <div class="test">scss test</div>
   </div>
 </template>
 
