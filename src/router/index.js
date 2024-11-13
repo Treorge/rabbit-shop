@@ -4,6 +4,7 @@ const Layout = () => import('@/views/Layout/index.vue')
 const Login = () => import('@/views/Login/index.vue')
 const Home = () => import('@/views/Home/index.vue')
 const Category = () => import('@/views/Category/index.vue')
+const SubCategory = () => import('@/views/SubCategory/index.vue')
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,11 +15,18 @@ const router = createRouter({
       children: [
         {
           path: '',
+          name: 'home',
           component: Home,
         },
         {
           path: 'category/:id',
+          name: 'category',
           component: Category,
+        },
+        {
+          path: 'category/sub/:id',
+          name: 'subCategory',
+          component: SubCategory,
         },
       ],
     },

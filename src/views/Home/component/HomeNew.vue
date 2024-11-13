@@ -1,7 +1,7 @@
 <script setup>
 import HomePanel from './HomePanel.vue'
 import { getNewAPI } from '@/api/home'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
 const newList = ref([])
 const getNewList = async () => {
@@ -9,7 +9,7 @@ const getNewList = async () => {
   newList.value = res.data.result
 }
 
-getNewList()
+onMounted(() => getNewList())
 </script>
 
 <template>

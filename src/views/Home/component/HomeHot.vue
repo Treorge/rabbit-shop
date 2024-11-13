@@ -1,7 +1,7 @@
 <script setup>
 import HomePanel from './HomePanel.vue'
 import { getHotAPI } from '@/api/home'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
 const hotList = ref([])
 const getHotList = async () => {
@@ -9,7 +9,7 @@ const getHotList = async () => {
   hotList.value = res.data.result
 }
 
-getHotList()
+onMounted(() => getHotList())
 </script>
 
 <template>
