@@ -1,13 +1,15 @@
 <script setup>
-import { loginAPI } from '@/api/user'
+import { useUserStore } from '@/stores/user'
 import { ElMessage } from 'element-plus'
 import 'element-plus/theme-chalk/el-message.css'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
+const userStore = useUserStore()
+
 const userInfo = ref({
-  account: '1311111111',
-  password: '123456',
+  account: 'heima293',
+  password: 'hm#qd@23!',
   agree: true,
 })
 
@@ -33,7 +35,7 @@ const doLogin = () => {
   //登录前进行一次表单校验，通过才能执行后续业务逻辑
   formRef.value.validate(async (valid) => {
     if (valid) {
-      await loginAPI({ account, password })
+      userStore.getUserInfo({ account, password })
       ElMessage({ type: 'success', message: '登陆成功' })
       router.replace({ path: '/' })
     }
