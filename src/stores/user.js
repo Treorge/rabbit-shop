@@ -2,6 +2,7 @@ import { loginAPI } from '@/api/user'
 
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
+import { useCartStore } from './cart'
 
 export const useUserStore = defineStore(
   'user',
@@ -16,6 +17,10 @@ export const useUserStore = defineStore(
     const clearUserInfo = () => {
       userInfo.value = {}
     }
+
+    // const getToken = () => {
+    //   token.value = userInfo.value.token
+    // }
 
     return {
       userInfo,

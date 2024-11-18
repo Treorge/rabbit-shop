@@ -41,6 +41,7 @@ httpInstance.interceptors.response.use(
       type: 'warning',
       message: error.response.data.message,
     })
+    //token失效
     if (error.response.status === 401) {
       userStore.clearUserInfo()
       router.push('/login')

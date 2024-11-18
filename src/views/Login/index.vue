@@ -1,4 +1,5 @@
 <script setup>
+import { useCartStore } from '@/stores/cart'
 import { useUserStore } from '@/stores/user'
 import { ElMessage } from 'element-plus'
 import 'element-plus/theme-chalk/el-message.css'
@@ -6,6 +7,7 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 const userStore = useUserStore()
+const cartStore = useCartStore()
 
 const userInfo = ref({
   account: 'heima293',
@@ -36,6 +38,7 @@ const doLogin = () => {
   formRef.value.validate(async (valid) => {
     if (valid) {
       userStore.getUserInfo({ account, password })
+      cartStore.mergeCartList()
       ElMessage({ type: 'success', message: '登陆成功' })
       router.replace({ path: '/' })
     }
