@@ -10,6 +10,10 @@ const CartList = () => import('@/views/CartList/index.vue')
 const Checkout = () => import('@/views/Checkout/index.vue')
 const Pay = () => import('@/views/Pay/index.vue')
 const PayBack = () => import('@/views/Pay/PayBack.vue')
+const Member = () => import('@/views/Member/index.vue')
+const MemberInfo = () => import('@/views/Member/components/UserInfo.vue')
+const MemberOrder = () => import('@/views/Member/components/UserOrder.vue')
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -56,6 +60,21 @@ const router = createRouter({
           path: 'paycallback',
           name: 'payCallBack',
           component: PayBack,
+        },
+        {
+          path: 'member',
+          name: 'member',
+          component: Member,
+          children: [
+            {
+              path: '',
+              component: MemberInfo,
+            },
+            {
+              path: 'order',
+              component: MemberOrder,
+            },
+          ],
         },
       ],
     },
